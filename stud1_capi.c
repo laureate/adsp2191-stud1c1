@@ -12,7 +12,7 @@
 char char_buffer[DISPLAY_SIZE];     // Must be globally defined for LCD_PRINT().
 void prints(const char *string) {
     int i;
-    for (i = 0; i < strlen(string); i++) {
+    for (i = 0; (i < DISPLAY_SIZE) && (i < strlen(string)); i++) {
         char_buffer[i] = string[i] & 0xFF;
     }
     LCD_PRINT(char_buffer,strlen(string));
